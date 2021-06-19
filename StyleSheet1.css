@@ -36,6 +36,7 @@ button {
     color: white;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    float: right;
 }
 
 input.search-bar {
@@ -67,4 +68,7 @@ h1.temp {
 .description {
     text-transform: capitalize;
     margin-left: 8px;
+}
+.card .search .button{
+    float: right;
 }
