@@ -1,6 +1,6 @@
 // JavaScript source code
 let weather = {
-    "apiKey": "f2fa54d6c9dead633ab0f1f30c7b275b",
+    apiKey: "f2fa54d6c9dead633ab0f1f30c7b275b",
     fetchWeather: function (city) {
        fetch(
            "https://api.openweathermap.org/data/2.5/weather?q="
@@ -23,12 +23,27 @@ let weather = {
         document.querySelector(".temp").innerText = temp + "c";
         document.querySelector(".humidity").innerText = "Humidity" + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed" + speed + "km /h";
+        document.querySelector(".weather").classList.remove("loading");
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')"
+
 },
-search: Function (){
+
+search: function(){
     this.fetchWeather(document.querySelector(".search-bar").value);
-},
+}
+
 };
-document.querySelector(".search button").addEventListner("click", function () {}
-   weather.search();    
- 
+
+document
+.querySelector(".search button")
+.addEventListener("click", function(){
+    weather.search();
 });
+
+document.querySelector(".search-bar").addEventListener("keyup", function(event){
+    if(event.key == "Enter"){
+        weather.search();
+    }
+})
+
+weather.fetchWeather("Colombo");
